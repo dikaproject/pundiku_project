@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pundiku_catatan_keuangan/pemasukan/page_pemasukan.dart';
 import 'package:pundiku_catatan_keuangan/pengeluaran/page_pengeluaran.dart';
-import 'package:pundiku_catatan_keuangan/settings/about.dart'; // Import halaman pengaturan
+import 'package:pundiku_catatan_keuangan/settings/settings.dart'; // Import halaman pengaturan
 
 void main() {
   runApp(const MyApp());
@@ -39,9 +39,11 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         scaffoldBackgroundColor: Colors.white,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.blue),
+        floatingActionButtonTheme:
+            const FloatingActionButtonThemeData(backgroundColor: Colors.blue),
         cardTheme: const CardTheme(surfaceTintColor: Colors.white),
-        dialogTheme: const DialogTheme(surfaceTintColor: Colors.white, backgroundColor: Colors.white),
+        dialogTheme: const DialogTheme(
+            surfaceTintColor: Colors.white, backgroundColor: Colors.white),
       ),
       debugShowCheckedModeBanner: false,
       home: Navigator(
@@ -50,14 +52,15 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             builder: (context) => Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.blue,
-                title: const Text('Catatan Keuangan', style: TextStyle(fontSize: 20, color: Colors.white)),
+                title: const Text('Catatan Keuangan',
+                    style: TextStyle(fontSize: 20, color: Colors.white)),
                 actions: [
                   IconButton(
                     icon: const Icon(Icons.settings),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AboutPage()),
+                        MaterialPageRoute(builder: (context) => SettingsPage()),
                       );
                     },
                   ),
