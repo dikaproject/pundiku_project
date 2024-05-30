@@ -64,4 +64,8 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    def activity_version = "1.6.1" // Make sure this is at least 1.6.0-alpha05
+    implementation "androidx.activity:activity:$activity_version"
+    // ... other dependencies
+}

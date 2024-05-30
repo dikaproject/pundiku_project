@@ -19,20 +19,58 @@ class _SettingsPageState extends State<SettingsPage> {
       ),
       body: ListView(
         children: [
-          ListTile(
+            ListTile(
             title: const Text('Ubah Warna Background'),
             trailing: const Icon(Icons.color_lens),
             onTap: () {
-              // Tambahkan logika untuk mengubah warna background aplikasi
+              showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                title: const Text('Maintenance'),
+                content: const Text('Sedang dalam tahap pengembangan\n\nBy DikaProject SMK Telkom Purwokerto\n\nHave a nice day all'),
+                actions: [
+                  TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK'),
+                  ),
+                ],
+                );
+              },
+              );
             },
-          ),
-          ListTile(
-            title: const Text('Icons Sosial Media Developer'),
+            ),
+            ListTile(
+            title: const Text('Contact Developer'),
             trailing: const Icon(Icons.share),
             onTap: () {
-              // Tambahkan logika untuk menampilkan icons sosial media developer
+              showDialog(
+              context: context,
+              builder: (BuildContext context) {
+              return AlertDialog(
+              title: const Text('Contact Developer'),
+              content: const Text('Apakah Anda ingin melanjutkan ke WhatsApp?'),
+              actions: [
+                TextButton(
+                onPressed: () {
+                Navigator.of(context).pop();
+                },
+                child: const Text('Tidak'),
+                ),
+                TextButton(
+                onPressed: () {
+                String whatsappUrl = 'https://wa.me/6281227848422';
+                },
+                child: const Text('Ya'),
+                ),
+              ],
+              );
+              },
+              );
             },
-          ),
+            ),
           ListTile(
             title: const Text('About Developer'),
             trailing: const Icon(Icons.info),
@@ -43,21 +81,35 @@ class _SettingsPageState extends State<SettingsPage> {
               );
             },
           ),
-          SwitchListTile(
+            SwitchListTile(
             title: const Text('Dark Mode'),
             value: isDarkMode,
             onChanged: (value) {
               setState(() {
-                isDarkMode = value; // Perbarui nilai Dark Mode
-                // Tambahkan logika untuk mengubah tema aplikasi sesuai dengan nilai Dark Mode
-                if (isDarkMode) {
-                  Theme.of(context).copyWith(brightness: Brightness.dark);
-                } else {
-                  Theme.of(context).copyWith(brightness: Brightness.light);
-                }
+              isDarkMode = value; // Perbarui nilai Dark Mode
+              // Tambahkan logika untuk mengubah tema aplikasi sesuai dengan nilai Dark Mode
               });
+              if (value) {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                return AlertDialog(
+                  title: const Text('Maintenance'),
+                  content: const Text('Sedang dalam tahap pengembangan\n\nBy DikaProject SMK Telkom Purwokerto\n\nHave a nice day all'),
+                  actions: [
+                  TextButton(
+                    onPressed: () {
+                    Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  ),
+                  ],
+                );
+                },
+              );
+              }
             },
-          ),
+            ),
         ],
       ),
     );

@@ -14,36 +14,42 @@ class _AboutPageState extends State<AboutPage> {
       'nis': '541221182',
       'role': 'Full-stack Developer',
       'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/rasya.png',
     },
     {
       'name': 'Batara Raditya Wijaya',
-      'nis': 'xxxxxxxxxx',
+      'nis': '541221054',
       'role': 'Back-end Developer',
       'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/batara.png',
     },
     {
-      'name': 'Siapa ya',
-      'nis': 'xxxxxxxxxx',
+      'name': 'Rafi Oktarino Ramadhan',
+      'nis': '541221176',
       'role': 'Back-end Developer',
-      'school': 'SMK Telkom Purwokerto',
+      'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/rafi.png',
     },
     {
-      'name': 'Siapa ya',
-      'nis': 'xxxxxxxxxx',
+      'name': 'Latief Ady Prasetyo',
+      'nis': '541221127',
+      'role': 'Dokumentasi',
+      'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/latief.png',
+    },
+    {
+      'name': 'Hanum Fadiyanti',
+      'nis': '541221109',
       'role': 'Front-end Developer',
-      'school': 'SMK Telkom Purwokerto',
+      'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/hanum.png',
     },
     {
-      'name': 'Siapa ya',
-      'nis': 'xxxxxxxxxx',
+      'name': 'Wafiq Azizah',
+      'nis': '541221209',
       'role': 'Front-end Developer',
-      'school': 'SMK Telkom Purwokerto',
-    },
-    {
-      'name': 'Siapa ya',
-      'nis': 'xxxxxxxxxx',
-      'role': 'Dokumentary',
-      'school': 'SMK Telkom Purwokerto',
+      'school': 'SMA Telkom Purwokerto',
+      'imagePath': 'assets/zizi.png',
     },
   ];
 
@@ -61,6 +67,7 @@ class _AboutPageState extends State<AboutPage> {
             nis: developers[index]['nis']!,
             role: developers[index]['role']!,
             school: developers[index]['school']!,
+            imagePath: developers[index]['imagePath']!,
           );
         },
       ),
@@ -73,12 +80,14 @@ class DeveloperCard extends StatelessWidget {
   final String nis;
   final String role;
   final String school;
+  final String imagePath;
 
   const DeveloperCard({
     required this.name,
     required this.nis,
     required this.role,
     required this.school,
+    required this.imagePath,
   });
 
   @override
@@ -92,7 +101,7 @@ class DeveloperCard extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 80,
-              backgroundImage: AssetImage('assets/megumin.jpeg'),
+              backgroundImage: AssetImage(imagePath),
             ),
             SizedBox(height: 20),
             Text(
